@@ -1,0 +1,7 @@
+# dev dependecies
+flake8
+pytest
+coverage
+awscli
+
+-r requirements.txt
