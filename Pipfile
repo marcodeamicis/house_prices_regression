@@ -11,6 +11,9 @@ pandas-profiling = "*"
 matplotlib = "*"
 seaborn = "*"
 plotly = "*"
+scikit-learn = "*"
+sklearn2pmml = "*"
+pypmml = "*"
 
 [dev-packages]
 

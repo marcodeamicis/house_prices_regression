@@ -12,3 +12,6 @@ matplotlib
 seaborn
 plotly
 streamlit
+scikit-learn >= 1.0
+sklearn2pmml
+pypmml
