@@ -2,7 +2,7 @@
 <PMML xmlns="http://www.dmg.org/PMML-4_4" xmlns:data="http://jpmml.org/jpmml-model/InlineTable" version="4.4">
 	<Header>
 		<Application name="JPMML-SkLearn library" version="1.7.8"/>
-		<Timestamp>2022-06-19T22:35:32Z</Timestamp>
+		<Timestamp>2022-06-26T23:41:11Z</Timestamp>
 	</Header>
 	<MiningBuildTask>
 		<Extension name="repr">PMMLPipeline(steps=[('knn', KNeighborsRegressor(n_jobs=-1))])</Extension>
