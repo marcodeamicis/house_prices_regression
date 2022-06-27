@@ -4,18 +4,26 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+python-dotenv = ">=0.5.1"
 pandas = "*"
 numpy = "*"
-streamlit = "*"
 pandas-profiling = "*"
 matplotlib = "*"
 seaborn = "*"
-plotly = "*"
-scikit-learn = "*"
+scikit-learn = ">=1.0"
 sklearn2pmml = "*"
 pypmml = "*"
+notebook = "*"
+pyarrow = "*"
+boruta = "*"
+jupyter = "*"
+ipywidgets = "*"
+feature-engine = "*"
 
 [dev-packages]
+flake8 = "*"
+pytest = "*"
+coverage = "*"
 
 [requires]
 python_version = "3.9"
