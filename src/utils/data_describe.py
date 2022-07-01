@@ -4,6 +4,7 @@
 Created on Sun Jun 16 22:36:39 2019
 @author: Gustavo Suto 
 """
+from numpy import dtype
 import pandas as pd
 
 
@@ -67,10 +68,15 @@ def cardinalidade(df):
 
     matriz_cardialidade = []
 
-    for i, coluna in enumerate(df_temporario.columns):
-        matriz_cardialidade.append([coluna, len(df_temporario[coluna].unique()), sorted(df_temporario[coluna].unique())])
+    for coluna in df_temporario.columns:
+        df_temporario.fillna('NaN', inplace=True)
+        proporcao_nulos = len(df_temporario.loc[df_temporario[coluna]=='NaN'])/len(df_temporario)
+        
+        matriz_cardialidade.append([
+            coluna, dtype(df_temporario[coluna]), len(df_temporario[coluna].unique()), sorted(df_temporario[coluna].unique()), proporcao_nulos
+            ])
 
-    matriz_cardialidade = pd.DataFrame(matriz_cardialidade, columns=["Atributo", "Cardinalidade", "Valores"])
+    matriz_cardialidade = pd.DataFrame(matriz_cardialidade, columns=["Atributo", "DType", "Cardinalidade", "Valores", "Proporção Nulos"])
     matriz_cardialidade.sort_values(by=["Cardinalidade", "Atributo"], inplace=True, ascending=True)
     
     return matriz_cardialidade
