@@ -19,6 +19,8 @@ boruta = "*"
 jupyter = "*"
 ipywidgets = "*"
 feature-engine = "*"
+plotly = "*"
+shap = "*"
 
 [dev-packages]
 flake8 = "*"
