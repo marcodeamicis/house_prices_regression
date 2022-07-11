@@ -17,6 +17,7 @@ plotly = "*"
 pandas-profiling = "*"
 shap = "*"
 lightgbm = "*"
+streamlit = "*"
 
 [dev-packages]
 flake8 = "*"
