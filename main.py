@@ -1,14 +1,25 @@
 # %%
+from tkinter import EXCEPTION
 from dotenv import find_dotenv, dotenv_values
 import pandas as pd
 import streamlit as st
 
+from src.custom_logger import get_logger
 from src.visualization.visualize import make_boxplot
 
 
 config = dotenv_values(find_dotenv())
 
-x_train = pd.read_parquet(config.get('INTERIM_FOLDER') + config.get('X_TRAIN'))
+logger = get_logger(config.get('LOG_FILE', './log/file.log'))
+
+try:
+    x_train = pd.read_parquet(
+        config.get('INTERIM_FOLDER', './data/interim/') + \
+        config.get('X_TRAIN', 'X_train_3rd_dataprep.pqt'))
+    logger.debug('x_train loaded')
+except EXCEPTION as e:
+    logger.error('Error during X_train loading.')
+
 # %%
 msg_sidebar = """
 > This streamlit app is just a POC using the
