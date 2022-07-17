@@ -5,13 +5,13 @@ import logging
 from pathlib import Path
 import os
 
-from dotenv import find_dotenv, dotenv_values
+from dynaconf import Dynaconf
 import pandas as pd
 import plotly
 import plotly.express as px
 
 
-config = dotenv_values(find_dotenv())
+config = Dynaconf(settings_files=["settings.toml"])
 
 
 def make_boxplot(df: pd.DataFrame, categorical: str, continuous: str, hue: str = None) -> plotly:
@@ -36,3 +36,5 @@ if __name__ == '__main__':
     log_file = config.get('LOG_FILE')
     logger = get_logger(config.get('LOG_FILE'))
 
+
+# %%

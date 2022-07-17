@@ -1,0 +1,11 @@
+LOG_FILE = './log/file.log'
+RAW_FOLDER = './data/raw/'
+INTERIM_FOLDER = './data/interim/'
+PROCESSED_FOLDER = './data/processed/'
+MODELS_FOLDER = './models/'
+REPORTS_FOLDER = './reports/'
+RANDOM_STATE = 42
+X_TRAIN = 'X_train_3rd_dataprep.pqt'
+X_TEST = 'X_test_3rd_dataprep.pqt'
+Y_TRAIN = 'y_train_3rd_dataprep.pqt'
+T_TEST = 'y_test_3rd_dataprep.pqt'

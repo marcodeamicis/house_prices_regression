@@ -1,13 +1,14 @@
 # %%
-from dotenv import find_dotenv, dotenv_values
+from dynaconf import Dynaconf
 import pandas as pd
 import streamlit as st
 
 from src.custom_logger import get_logger
 from src.visualization.visualize import make_boxplot
 
+from dynaconf import Dynaconf
 
-config = dotenv_values(find_dotenv())
+config = Dynaconf(settings_files=["settings.toml"])
 
 logger = get_logger(config.get('LOG_FILE', './log/file.log'))
 

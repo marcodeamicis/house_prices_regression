@@ -4,10 +4,10 @@ import logging
 from pathlib import Path
 import os
 
-from dotenv import find_dotenv, dotenv_values
+from dynaconf import Dynaconf
 
 
-config = dotenv_values(find_dotenv())
+config = Dynaconf(settings_files=["settings.toml"])
 
 def main(input_filepath, output_filepath):
     """ Runs data processing scripts to turn raw data from (../raw) into

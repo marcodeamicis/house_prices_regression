@@ -93,3 +93,6 @@ target/
 
 # ADDED BY MARCO
 .venv
+
+# Ignore dynaconf secret files
+.secrets.*

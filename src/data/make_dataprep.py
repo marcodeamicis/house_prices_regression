@@ -5,10 +5,11 @@ import logging
 from pathlib import Path
 import os
 
-from dotenv import find_dotenv, dotenv_values
+from dynaconf import Dynaconf
 import pandas as pd
 
-config = dotenv_values(find_dotenv())
+
+config = Dynaconf(settings_files=["settings.toml"])
 
 
 def load_dataprep_model(model_path: str) -> joblib:

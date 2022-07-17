@@ -3,10 +3,10 @@ import logging
 import os
 from time import asctime
 
-from dotenv import find_dotenv, dotenv_values
+from dynaconf import Dynaconf
 
 
-config = dotenv_values(find_dotenv())
+config = Dynaconf(settings_files=["settings.toml"])
 
 def get_logger(log_file: str = './log/file.log') -> logging.getLogger:
 

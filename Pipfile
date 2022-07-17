@@ -18,6 +18,7 @@ pandas-profiling = "*"
 shap = "*"
 lightgbm = "*"
 streamlit = "*"
+dynaconf = "*"
 
 [dev-packages]
 flake8 = "*"
