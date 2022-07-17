@@ -1,5 +1,4 @@
-import os
-
+# %%
 from dotenv import find_dotenv, dotenv_values
 import pandas as pd
 import streamlit as st
@@ -10,7 +9,7 @@ from src.visualization.visualize import make_boxplot
 config = dotenv_values(find_dotenv())
 
 x_train = pd.read_parquet(config.get('INTERIM_FOLDER') + config.get('X_TRAIN'))
-
+# %%
 msg_sidebar = """
 > This streamlit app is just a POC using the
 > [Kaggle's House Prediction Challenge](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques).

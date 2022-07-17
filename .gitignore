@@ -78,8 +78,8 @@ target/
 # exclude data from source control by default
 /data/*/*.csv
 /data/*/*.xlx*
-/data/*/*.pqt
-/data/*/*.parquet
+# /data/*/*.pqt
+# /data/*/*.parquet
 
 # Mac OS-specific storage files
 .DS_Store
