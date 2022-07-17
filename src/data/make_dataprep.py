@@ -11,7 +11,7 @@ import pandas as pd
 load_dotenv(find_dotenv())
 
 
-def load_predicting_model(model_path: str) -> joblib:
+def load_dataprep_model(model_path: str) -> joblib:
     try:
         loaded_model = joblib.load(model_path)
         logger.debug(f'Model {Path(model_path).name} successfully loaded.')
@@ -24,23 +24,23 @@ def load_predicting_model(model_path: str) -> joblib:
             )
         return None
 
-def predict(input_data: pd.DataFrame, model: joblib) -> pd.DataFrame:
+def prepare_data(input_data: pd.DataFrame, model: joblib) -> pd.DataFrame:
     try:
-        output_data = model.predict(input_data)
-        logger.debug(f'Prediction successfully done.')
+        output_data = model.transform(input_data)
+        logger.debug(f'Data successfully transformed.')
         return output_data
     except Exception as e:
-        logger.error(f"An error occured while doing 'predict': {e}")
+        logger.error(e)
 
 
 if __name__ == '__main__':
     path = Path().absolute()
     
-    if path.name == 'models':
+    if path.name == 'data':
         os.chdir(Path(__file__).resolve().parents[2])
         from src.custom_logger import get_logger
 
     log_file = os.environ.get('LOG_FILE')
     logger = get_logger(os.environ.get('LOG_FILE'))
 
-    loaded_model = load_predicting_model(model_path='./models/model_7th_experiment_7th_experiment_gridsearch.sav')
+    loaded_model = load_dataprep_model(model_path='./models/dataprep_pipeline_4rd_experiment.sav')
