@@ -1,15 +1,15 @@
 import os
 
-from dotenv import find_dotenv, load_dotenv
+from dotenv import find_dotenv, dotenv_values
 import pandas as pd
 import streamlit as st
 
 from src.visualization.visualize import make_boxplot
 
 
-load_dotenv(find_dotenv())
+config = dotenv_values(find_dotenv())
 
-x_train = pd.read_parquet(os.environ.get('INTERIM_FOLDER') + os.environ.get('X_TRAIN'))
+x_train = pd.read_parquet(config.get('INTERIM_FOLDER') + config.get('X_TRAIN'))
 
 msg_sidebar = """
 > This streamlit app is just a POC using the

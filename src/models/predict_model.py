@@ -5,10 +5,10 @@ import logging
 from pathlib import Path
 import os
 
-from dotenv import find_dotenv, load_dotenv
+from dotenv import find_dotenv, dotenv_values
 import pandas as pd
 
-load_dotenv(find_dotenv())
+config = dotenv_values(find_dotenv())
 
 
 def load_predicting_model(model_path: str) -> joblib:
@@ -41,6 +41,6 @@ if __name__ == '__main__':
         from src.custom_logger import get_logger
 
     log_file = os.environ.get('LOG_FILE')
-    logger = get_logger(os.environ.get('LOG_FILE'))
+    logger = get_logger(config.get('LOG_FILE'))
 
     loaded_model = load_predicting_model(model_path='./models/model_7th_experiment_7th_experiment_gridsearch.sav')

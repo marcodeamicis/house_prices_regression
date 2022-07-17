@@ -3,10 +3,10 @@ import logging
 import os
 from time import asctime
 
-from dotenv import find_dotenv, load_dotenv
+from dotenv import find_dotenv, dotenv_values
 
 
-load_dotenv(find_dotenv())
+config = dotenv_values(find_dotenv())
 
 def get_logger(log_file: str = './log/file.log') -> logging.getLogger:
 
@@ -37,7 +37,7 @@ if __name__ == '__main__':
     if path.name == 'src':
         log_file = '../log/file.log'
     else:
-        log_file = os.environ.get('LOG_FILE')
+        log_file = config.get('LOG_FILE')
 
     logger = get_logger(log_file)
     logger.debug('Executed.')

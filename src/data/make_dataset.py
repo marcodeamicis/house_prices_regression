@@ -4,10 +4,10 @@ import logging
 from pathlib import Path
 import os
 
-from dotenv import find_dotenv, load_dotenv
+from dotenv import find_dotenv, dotenv_values
 
 
-load_dotenv(find_dotenv())
+config = dotenv_values(find_dotenv())
 
 def main(input_filepath, output_filepath):
     """ Runs data processing scripts to turn raw data from (../raw) into
@@ -24,7 +24,7 @@ if __name__ == '__main__':
         os.chdir(Path(__file__).resolve().parents[2])
         from src.custom_logger import get_logger
 
-    log_file = os.environ.get('LOG_FILE')
+    log_file = config.get('LOG_FILE')
 
-    logger = get_logger(os.environ.get('LOG_FILE'))
+    logger = get_logger(log_file)
 # %%
