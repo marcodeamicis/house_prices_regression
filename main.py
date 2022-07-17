@@ -1,5 +1,4 @@
 # %%
-from tkinter import EXCEPTION
 from dotenv import find_dotenv, dotenv_values
 import pandas as pd
 import streamlit as st
@@ -17,7 +16,7 @@ try:
         config.get('INTERIM_FOLDER', './data/interim/') + \
         config.get('X_TRAIN', 'X_train_3rd_dataprep.pqt'))
     logger.debug('x_train loaded')
-except EXCEPTION as e:
+except:
     logger.error('Error during X_train loading.')
 
 # %%
