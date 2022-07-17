@@ -2,6 +2,9 @@
 
 Kaggle's house prices regression
 
+### App
+
+The app in development can be seen [here](https://house-prediction-porquito.herokuapp.com/).
 ### Wireframe
 
 The image below represents how we want to present data and the predictions.
