@@ -3,7 +3,7 @@ install:
 		pipenv install --dev --skip-lock
 
 lint:
-	flake8 src
+	flake8
 
 test:
 	pipenv run pytest --cov ./src/

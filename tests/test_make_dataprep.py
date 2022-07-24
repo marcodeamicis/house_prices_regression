@@ -2,7 +2,7 @@
 import pandas as pd
 import pytest
 
-from src.data.make_dataprep import verify_data_type, load_dataprep_model, prepare_data
+from src.data.make_dataprep import verify_data_type
 
 
 @pytest.mark.parametrize(
