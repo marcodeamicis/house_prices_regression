@@ -1,12 +1,12 @@
 # %%
 import logging
-import os
-from time import asctime
+from click import FileError
 
 from dynaconf import Dynaconf
 
 
 config = Dynaconf(settings_files=["settings.toml"])
+
 
 def get_logger(log_file: str = './log/file.log') -> logging.getLogger:
 
@@ -16,17 +16,19 @@ def get_logger(log_file: str = './log/file.log') -> logging.getLogger:
     console_handler = logging.StreamHandler()
     console_handler.setLevel(logging.DEBUG)
     console_handler.setFormatter(logging.Formatter('%(levelname)-8s | %(filename)s:%(lineno)-4s | %(message)s'))
-    
+
     try:
         file_handler = logging.FileHandler(log_file)
         file_handler.setLevel(logging.ERROR)
-        file_handler.setFormatter(logging.Formatter('%(asctime)s; %(levelname)-s; %(filename)-s:%(lineno)-s; %(message)s', '%Y-%m-%d %H:%M'))
+        file_handler.setFormatter(logging.Formatter(
+            '%(asctime)s; %(levelname)-s; %(filename)-s:%(lineno)-s; %(message)s', '%Y-%m-%d %H:%M'
+        ))
 
         if not logger.hasHandlers():
             logger.addHandler(console_handler)
             logger.addHandler(file_handler)
 
-    except:
+    except FileError:
         if not logger.hasHandlers():
             logger.addHandler(console_handler)
 
@@ -37,7 +39,7 @@ if __name__ == '__main__':
     from pathlib import Path
 
     path = Path().absolute()
-    
+
     if path.name == 'src':
         log_file = '../log/file.log'
     else:

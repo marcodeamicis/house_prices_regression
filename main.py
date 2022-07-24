@@ -1,6 +1,6 @@
 # %%
+from click import FileError
 from dynaconf import Dynaconf
-import numpy as np
 import pandas as pd
 import streamlit as st
 
@@ -22,13 +22,13 @@ try:
         config.get('Y_TRAIN', 'y_train_3rd_dataprep.pqt'))
     df = pd.concat([x_train, y_train], axis=1)
     logger.debug('x_train loaded')
-except:
+except FileError:
     logger.error('Error during X_train loading.')
 
 # %%
 msg_sidebar = """
-> This streamlit app is just a POC using the
-> [Kaggle's House Prediction Challenge](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques).
+This streamlit app is just a POC using the
+[Kaggle's House Prediction Challenge](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques).
 """
 
 with st.sidebar:

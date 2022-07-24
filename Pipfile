@@ -19,6 +19,7 @@ shap = "*"
 lightgbm = "*"
 streamlit = "*"
 dynaconf = "*"
+pytest-cov = "*"
 
 [dev-packages]
 flake8 = "*"
