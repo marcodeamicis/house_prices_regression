@@ -35,7 +35,6 @@ def verify_data_type(df: pd.DataFrame, feature: str) -> str:
 
     return data_type
 
-
 def load_dataprep_model(model_path: str) -> joblib:
     try:
         loaded_model = joblib.load(model_path)
