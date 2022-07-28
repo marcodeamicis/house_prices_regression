@@ -1,7 +1,9 @@
 [![Makefile CI](https://github.com/guyrux/house_prices_regression/actions/workflows/makefile.yml/badge.svg)](https://github.com/guyrux/house_prices_regression/actions/workflows/makefile.yml)
 # House Prices Regression
 
-Kaggle's house prices regression
+Kaggle's house prices regression.
+
+We use a random forest. 
 
 ### App
 
