@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 # %%
 import joblib
-import logging
 from pathlib import Path
 import os
 
@@ -35,6 +34,7 @@ def verify_data_type(df: pd.DataFrame, feature: str) -> str:
 
     return data_type
 
+
 def load_dataprep_model(model_path: str) -> joblib:
     try:
         loaded_model = joblib.load(model_path)
@@ -45,7 +45,7 @@ def load_dataprep_model(model_path: str) -> joblib:
         logger.error('File not found. Please verify the given path.')
         logger.info(
             f"""See the available models: {[x for x in Path(model_path).resolve().parent.glob('*.sav')]}"""
-            )
+        )
         return None
 
 
